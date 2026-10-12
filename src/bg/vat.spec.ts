@@ -31,4 +31,18 @@ describe('bg/vat', () => {
 
     expect(result.error).toBeInstanceOf(InvalidChecksum);
   });
+
+  // A registered company number (confirmed valid in the EU VIES service). The
+  // first digit is not restricted: python-stdnum's bg/vat has no such rule.
+  it('validate:BG 831137001', () => {
+    const result = validate('BG 831137001');
+
+    expect(result.isValid && result.compact).toEqual('831137001');
+  });
+
+  it('validate:BG 831137002', () => {
+    const result = validate('BG 831137002');
+
+    expect(result.error).toBeInstanceOf(InvalidChecksum);
+  });
 });
