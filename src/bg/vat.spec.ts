@@ -32,8 +32,8 @@ describe('bg/vat', () => {
     expect(result.error).toBeInstanceOf(InvalidChecksum);
   });
 
-  // Vivacom Bulgaria's VAT number (valid in the EU VIES service). The first
-  // digit is not restricted: python-stdnum's bg/vat has no such rule.
+  // A registered VAT number starting with 8. The first digit is not
+  // restricted: python-stdnum's bg/vat has no such rule.
   it('validate:BG 831642181', () => {
     const result = validate('BG 831642181');
 
