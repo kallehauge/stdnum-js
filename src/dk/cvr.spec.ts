@@ -40,7 +40,7 @@ describe('dk/cvr', () => {
     expect(result.error).toBeInstanceOf(InvalidFormat);
   });
 
-  // Novo Nordisk A/S, active in the Danish CVR register: real numbers still pass.
+  // A registered CVR number still passes.
   test.each(['24256790', 'DK24256790'])('validate:%s', value => {
     const result = validate(value);
 
